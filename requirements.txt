@@ -1,0 +1,15 @@
+# Install torch first with the index matching your hardware, e.g.:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128   (NVIDIA)
+#   pip install torch                                                      (CPU)
+torch>=2.4
+transformers>=4.51
+numpy
+pyyaml
+onnx>=1.16
+onnxruntime>=1.18
+matplotlib
+safetensors
+pytest>=8
+# Optional Qualcomm cloud tooling (opt-in):
+# qai-hub
+# qai-hub-models

@@ -1,0 +1,112 @@
+{
+  "source_summary": "docs/results/qwen3_1_7b_patch/export_summary.json",
+  "qai_hub_version": "0.53.0",
+  "phases": {
+    "alpha_4": {
+      "links": [
+        {
+          "part": 1,
+          "link_job_id": "jprnk2305",
+          "link_job_url": "https://workbench.aihub.qualcomm.com/jobs/jprnk2305/",
+          "link_status": "SUCCESS",
+          "target_model_id": "mmr8wvp2n",
+          "target_model_name": "job_jprnk2305_linked_bin",
+          "device": "Samsung Galaxy S25 (Family)"
+        },
+        {
+          "part": 2,
+          "link_job_id": "jp2v89yr5",
+          "link_job_url": "https://workbench.aihub.qualcomm.com/jobs/jp2v89yr5/",
+          "link_status": "SUCCESS",
+          "target_model_id": "mq927302m",
+          "target_model_name": "job_jp2v89yr5_linked_bin",
+          "device": "Samsung Galaxy S25 (Family)"
+        },
+        {
+          "part": 3,
+          "link_job_id": "jpy7ej38p",
+          "link_job_url": "https://workbench.aihub.qualcomm.com/jobs/jpy7ej38p/",
+          "link_status": "SUCCESS",
+          "target_model_id": "mq87y35pm",
+          "target_model_name": "job_jpy7ej38p_linked_bin",
+          "device": "Samsung Galaxy S25 (Family)"
+        },
+        {
+          "part": 4,
+          "link_job_id": "jp0vy209g",
+          "link_job_url": "https://workbench.aihub.qualcomm.com/jobs/jp0vy209g/",
+          "link_status": "SUCCESS",
+          "target_model_id": "mqprxe9jm",
+          "target_model_name": "job_jp0vy209g_linked_bin",
+          "device": "Samsung Galaxy S25 (Family)"
+        }
+      ],
+      "profiles": [
+        {
+          "part": 1,
+          "graph_type": "prompt",
+          "graph_name": "prompt_ar128_cl512_1_of_4",
+          "options": "--qnn_option context_enable_graphs=prompt_ar128_cl512_1_of_4",
+          "profile_job_id": "jgn724mvp",
+          "profile_job_url": "https://workbench.aihub.qualcomm.com/jobs/jgn724mvp/",
+          "profile_status": "SUCCESS",
+          "profile_message": "",
+          "estimated_inference_time_us": 77,
+          "peak_memory_bytes": 127205376,
+          "ops_by_compute_unit": {
+            "NPU": 3
+          },
+          "all_ops_on_npu": true
+        },
+        {
+          "part": 2,
+          "graph_type": "prompt",
+          "graph_name": "prompt_ar128_cl512_2_of_4",
+          "options": "--qnn_option context_enable_graphs=prompt_ar128_cl512_2_of_4",
+          "profile_job_id": "jgk9z1925",
+          "profile_job_url": "https://workbench.aihub.qualcomm.com/jobs/jgk9z1925/",
+          "profile_status": "SUCCESS",
+          "profile_message": "",
+          "estimated_inference_time_us": 6750,
+          "peak_memory_bytes": 159121408,
+          "ops_by_compute_unit": {
+            "NPU": 5063
+          },
+          "all_ops_on_npu": true
+        },
+        {
+          "part": 3,
+          "graph_type": "prompt",
+          "graph_name": "prompt_ar128_cl512_3_of_4",
+          "options": "--qnn_option context_enable_graphs=prompt_ar128_cl512_3_of_4",
+          "profile_job_id": "jp3wkdo35",
+          "profile_job_url": "https://workbench.aihub.qualcomm.com/jobs/jp3wkdo35/",
+          "profile_status": "SUCCESS",
+          "profile_message": "",
+          "estimated_inference_time_us": 6740,
+          "peak_memory_bytes": 159223808,
+          "ops_by_compute_unit": {
+            "NPU": 5063
+          },
+          "all_ops_on_npu": true
+        },
+        {
+          "part": 4,
+          "graph_type": "prompt",
+          "graph_name": "prompt_ar128_cl512_4_of_4",
+          "options": "--qnn_option context_enable_graphs=prompt_ar128_cl512_4_of_4",
+          "profile_job_id": "jgz4e6exp",
+          "profile_job_url": "https://workbench.aihub.qualcomm.com/jobs/jgz4e6exp/",
+          "profile_status": "SUCCESS",
+          "profile_message": "",
+          "estimated_inference_time_us": 13448,
+          "peak_memory_bytes": 192528384,
+          "ops_by_compute_unit": {
+            "NPU": 4055
+          },
+          "all_ops_on_npu": true
+        }
+      ]
+    }
+  }
+}

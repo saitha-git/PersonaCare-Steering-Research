@@ -1,0 +1,42 @@
+# Integration-target config: Qwen3-1.7B
+#
+# This model has an editable Qualcomm AI Hub Models QAIRT/Genie recipe and does
+# not require Meta license access. It is heavier than Qwen3-0.6B and is intended
+# for the "steering inside deployed LLM" experiment.
+model:
+  model_id: Qwen/Qwen3-1.7B
+  revision: main
+  dtype: float32
+  device: auto
+  trust_remote_code: false
+
+concept:
+  name: verbosity
+  positive_label: verbose
+  negative_label: concise
+
+extraction:
+  # Qwen3-1.7B has 28 decoder layers and hidden_size=2048. Layer 7 is the
+  # default first target because Qwen3-0.6B showed the strongest dose-response
+  # there; re-sweep later if the integrated experiment has time.
+  layers: [7]
+  position: last_token
+  holdout_fraction: 0.2
+  seed: 1234
+
+injection:
+  default_layer: 7
+  alphas: [-4, 0, 4]
+  positions: all
+  normalize_vector: true
+
+generation:
+  max_new_tokens: 256
+  do_sample: false
+  seed: 1234
+  chat_template: true
+  enable_thinking: false
+
+evaluation:
+  top_k: 10
+  zero_alpha_tolerance: 1.0e-5

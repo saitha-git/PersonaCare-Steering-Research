@@ -1,0 +1,40 @@
+# Primary config: Qwen3-0.6B (Apache-2.0, listed on Qualcomm AI Hub)
+model:
+  model_id: Qwen/Qwen3-0.6B
+  revision: main            # actual resolved commit hash is recorded in vector metadata
+  dtype: float32            # float32 for reproducible numerics; bfloat16 also works on CUDA
+  device: auto              # auto -> cuda if available else cpu
+  trust_remote_code: false
+
+concept:
+  name: verbosity
+  # positive examples are VERBOSE, negative examples are CONCISE, so:
+  #   +alpha -> more verbose, -alpha -> more concise
+  positive_label: verbose
+  negative_label: concise
+
+extraction:
+  # Residual-stream capture point: the OUTPUT hidden state of decoder layer i
+  # (i.e., after that layer's attention + MLP + residual adds), captured at the
+  # last non-padding token of each example.
+  layers: [3, 7, 11, 14, 17, 21, 25]   # Qwen3-0.6B has 28 decoder layers (0..27)
+  position: last_token
+  holdout_fraction: 0.2     # pairs reserved for evaluation, never used for extraction
+  seed: 1234
+
+injection:
+  default_layer: 7   # best measured dose-response (see artifacts/dose_response.png)
+  alphas: [-4, -2, -1, 0, 1, 2, 4]
+  positions: all            # all | last | mask
+  normalize_vector: true    # scale vector to unit norm before alpha is applied
+
+generation:
+  max_new_tokens: 512   # generations hitting this cap are flagged as censored
+  do_sample: false          # greedy for comparisons
+  seed: 1234                # used only if do_sample is true
+  chat_template: true
+  enable_thinking: false    # Qwen3: disable <think> blocks for the demo
+
+evaluation:
+  top_k: 10
+  zero_alpha_tolerance: 1.0e-5

@@ -1,0 +1,251 @@
+{
+  "cells": [
+    {
+      "layer": 7,
+      "alpha": -4.0,
+      "n_uncensored": 31,
+      "n_censored": 1,
+      "mean_words_uncensored": 99.64516129032258,
+      "mean_paired_delta_words": -46.36666666666667,
+      "delta_ci95_low": -64.53416666666666,
+      "delta_ci95_high": -28.83250000000001,
+      "n_pairs": 30
+    },
+    {
+      "layer": 7,
+      "alpha": -2.0,
+      "n_uncensored": 31,
+      "n_censored": 1,
+      "mean_words_uncensored": 119.16129032258064,
+      "mean_paired_delta_words": -31.533333333333335,
+      "delta_ci95_low": -46.8,
+      "delta_ci95_high": -17.59916666666668,
+      "n_pairs": 30
+    },
+    {
+      "layer": 7,
+      "alpha": -1.0,
+      "n_uncensored": 30,
+      "n_censored": 2,
+      "mean_words_uncensored": 135.23333333333332,
+      "mean_paired_delta_words": -7.266666666666667,
+      "delta_ci95_low": -18.067499999999992,
+      "delta_ci95_high": 2.567499999999988,
+      "n_pairs": 30
+    },
+    {
+      "layer": 7,
+      "alpha": 0.0,
+      "n_uncensored": 31,
+      "n_censored": 1,
+      "mean_words_uncensored": 147.1290322580645,
+      "mean_paired_delta_words": 0.0,
+      "delta_ci95_low": 0.0,
+      "delta_ci95_high": 0.0,
+      "n_pairs": 31
+    },
+    {
+      "layer": 7,
+      "alpha": 1.0,
+      "n_uncensored": 29,
+      "n_censored": 3,
+      "mean_words_uncensored": 144.41379310344828,
+      "mean_paired_delta_words": 7.931034482758621,
+      "delta_ci95_low": -4.449137931034475,
+      "delta_ci95_high": 21.344827586206897,
+      "n_pairs": 29
+    },
+    {
+      "layer": 7,
+      "alpha": 2.0,
+      "n_uncensored": 31,
+      "n_censored": 1,
+      "mean_words_uncensored": 156.61290322580646,
+      "mean_paired_delta_words": 9.483870967741936,
+      "delta_ci95_low": -4.904032258064509,
+      "delta_ci95_high": 24.936290322580632,
+      "n_pairs": 31
+    },
+    {
+      "layer": 7,
+      "alpha": 4.0,
+      "n_uncensored": 31,
+      "n_censored": 1,
+      "mean_words_uncensored": 172.70967741935485,
+      "mean_paired_delta_words": 25.580645161290324,
+      "delta_ci95_low": 7.419354838709677,
+      "delta_ci95_high": 43.09758064516127,
+      "n_pairs": 31
+    },
+    {
+      "layer": 14,
+      "alpha": -4.0,
+      "n_uncensored": 30,
+      "n_censored": 2,
+      "mean_words_uncensored": 131.36666666666667,
+      "mean_paired_delta_words": -14.133333333333333,
+      "delta_ci95_low": -30.1,
+      "delta_ci95_high": 0.46749999999998787,
+      "n_pairs": 30
+    },
+    {
+      "layer": 14,
+      "alpha": -2.0,
+      "n_uncensored": 29,
+      "n_censored": 3,
+      "mean_words_uncensored": 135.10344827586206,
+      "mean_paired_delta_words": -5.551724137931035,
+      "delta_ci95_low": -18.75862068965517,
+      "delta_ci95_high": 7.931034482758621,
+      "n_pairs": 29
+    },
+    {
+      "layer": 14,
+      "alpha": -1.0,
+      "n_uncensored": 29,
+      "n_censored": 3,
+      "mean_words_uncensored": 137.9655172413793,
+      "mean_paired_delta_words": -2.689655172413793,
+      "delta_ci95_low": -13.586206896551724,
+      "delta_ci95_high": 7.344827586206897,
+      "n_pairs": 29
+    },
+    {
+      "layer": 14,
+      "alpha": 0.0,
+      "n_uncensored": 31,
+      "n_censored": 1,
+      "mean_words_uncensored": 147.1290322580645,
+      "mean_paired_delta_words": 0.0,
+      "delta_ci95_low": 0.0,
+      "delta_ci95_high": 0.0,
+      "n_pairs": 31
+    },
+    {
+      "layer": 14,
+      "alpha": 1.0,
+      "n_uncensored": 29,
+      "n_censored": 3,
+      "mean_words_uncensored": 134.20689655172413,
+      "mean_paired_delta_words": -2.2758620689655173,
+      "delta_ci95_low": -16.79310344827586,
+      "delta_ci95_high": 11.482758620689655,
+      "n_pairs": 29
+    },
+    {
+      "layer": 14,
+      "alpha": 2.0,
+      "n_uncensored": 30,
+      "n_censored": 2,
+      "mean_words_uncensored": 140.73333333333332,
+      "mean_paired_delta_words": -1.7666666666666666,
+      "delta_ci95_low": -16.900833333333324,
+      "delta_ci95_high": 13.067499999999988,
+      "n_pairs": 30
+    },
+    {
+      "layer": 14,
+      "alpha": 4.0,
+      "n_uncensored": 29,
+      "n_censored": 3,
+      "mean_words_uncensored": 136.55172413793105,
+      "mean_paired_delta_words": 0.06896551724137931,
+      "delta_ci95_low": -14.310344827586206,
+      "delta_ci95_high": 14.448275862068966,
+      "n_pairs": 29
+    },
+    {
+      "layer": 21,
+      "alpha": -4.0,
+      "n_uncensored": 30,
+      "n_censored": 2,
+      "mean_words_uncensored": 137.96666666666667,
+      "mean_paired_delta_words": -5.862068965517241,
+      "delta_ci95_low": -15.242241379310338,
+      "delta_ci95_high": 1.7241379310344827,
+      "n_pairs": 29
+    },
+    {
+      "layer": 21,
+      "alpha": -2.0,
+      "n_uncensored": 32,
+      "n_censored": 0,
+      "mean_words_uncensored": 151.96875,
+      "mean_paired_delta_words": -0.6774193548387096,
+      "delta_ci95_low": -7.0,
+      "delta_ci95_high": 4.225806451612903,
+      "n_pairs": 31
+    },
+    {
+      "layer": 21,
+      "alpha": -1.0,
+      "n_uncensored": 32,
+      "n_censored": 0,
+      "mean_words_uncensored": 151.21875,
+      "mean_paired_delta_words": -1.5483870967741935,
+      "delta_ci95_low": -7.483870967741935,
+      "delta_ci95_high": 2.7419354838709675,
+      "n_pairs": 31
+    },
+    {
+      "layer": 21,
+      "alpha": 0.0,
+      "n_uncensored": 31,
+      "n_censored": 1,
+      "mean_words_uncensored": 147.1290322580645,
+      "mean_paired_delta_words": 0.0,
+      "delta_ci95_low": 0.0,
+      "delta_ci95_high": 0.0,
+      "n_pairs": 31
+    },
+    {
+      "layer": 21,
+      "alpha": 1.0,
+      "n_uncensored": 31,
+      "n_censored": 1,
+      "mean_words_uncensored": 148.96774193548387,
+      "mean_paired_delta_words": 1.8387096774193548,
+      "delta_ci95_low": -1.4193548387096775,
+      "delta_ci95_high": 6.258064516129032,
+      "n_pairs": 31
+    },
+    {
+      "layer": 21,
+      "alpha": 2.0,
+      "n_uncensored": 31,
+      "n_censored": 1,
+      "mean_words_uncensored": 144.8709677419355,
+      "mean_paired_delta_words": -2.2580645161290325,
+      "delta_ci95_low": -7.806451612903226,
+      "delta_ci95_high": 3.3225806451612905,
+      "n_pairs": 31
+    },
+    {
+      "layer": 21,
+      "alpha": 4.0,
+      "n_uncensored": 32,
+      "n_censored": 0,
+      "mean_words_uncensored": 154.0625,
+      "mean_paired_delta_words": 1.903225806451613,
+      "delta_ci95_low": -2.838709677419355,
+      "delta_ci95_high": 7.290322580645161,
+      "n_pairs": 31
+    }
+  ],
+  "spearman_by_layer": {
+    "7": {
+      "rho": 0.2505769229157909,
+      "n": 214
+    },
+    "14": {
+      "rho": 0.0490264511234636,
+      "n": 207
+    },
+    "21": {
+      "rho": 0.014946112960987492,
+      "n": 219
+    }
+  },
+  "max_new_tokens": 512,
+  "n_prompts": 32
+}

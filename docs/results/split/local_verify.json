@@ -1,0 +1,12 @@
+{
+  "prompt": "The engineers connected the phone and the laptop over the local network so that the first half of the language model could run on one device while the second half ran on the other, passing activations between them.",
+  "metrics": {
+    "max_abs_logit_diff": 7.915496826171875e-05,
+    "mean_abs_logit_diff": 5.2178793339408e-06,
+    "argmax_agreement_all_positions": 1.0,
+    "next_token_match": true,
+    "kl_last_position": 5.0995872413750476e-08
+  },
+  "next_token_id": 279,
+  "next_token_text": " the"
+}

@@ -1,0 +1,89 @@
+diff --git a/src/qai_hub_models/models/_shared/qwen3/model.py b/src/qai_hub_models/models/_shared/qwen3/model.py
+index 0000000..0000000 100644
+--- a/src/qai_hub_models/models/_shared/qwen3/model.py
++++ b/src/qai_hub_models/models/_shared/qwen3/model.py
+@@ -147,7 +147,84 @@ class Qwen3Base(LLMBase):
+         modeling_qwen3.apply_rotary_pos_emb = QcQwen3_apply_rotary_pos_emb
+ 
+         modeling_qwen3.Qwen3MLP = QCQwen3MLP  # type: ignore[misc, unused-ignore]
+         modeling_qwen3.Qwen3ForCausalLM = QCQwen3ForCausalLM  # type: ignore[misc, unused-ignore]
++        Qwen3Base._install_steering_poc_patch()
++
++    @staticmethod
++    def _install_steering_poc_patch() -> None:
++        """Optionally compile an activation-steering Add into Qwen3 exports.
++
++        Controlled entirely by env vars so this patch can stay inert for normal
++        qai-hub-models use:
++          * STEERING_POC_QWEN3_VECTOR: torch .pt payload with key "vector"
++          * STEERING_POC_QWEN3_LAYER: decoder layer index, default 7
++          * STEERING_POC_QWEN3_ALPHA: scalar coefficient, default 4.0
++          * STEERING_POC_QWEN3_NORMALIZE: 1/true/yes by default
++        """
++        vector_path = os.environ.get("STEERING_POC_QWEN3_VECTOR")
++        if not vector_path:
++            return
++        if hasattr(modeling_qwen3.Qwen3DecoderLayer, "_steering_poc_original_forward"):
++            return
++
++        layer_index = int(os.environ.get("STEERING_POC_QWEN3_LAYER", "7"))
++        alpha = float(os.environ.get("STEERING_POC_QWEN3_ALPHA", "4.0"))
++        normalize = os.environ.get("STEERING_POC_QWEN3_NORMALIZE", "1").lower() in (
++            "1",
++            "true",
++            "yes",
++            "on",
++        )
++        payload = torch.load(vector_path, map_location="cpu")
++        steering_vector = payload["vector"] if isinstance(payload, dict) else payload
++        steering_vector = steering_vector.reshape(-1).float()
++        if normalize:
++            norm = steering_vector.norm()
++            if norm.item() == 0:
++                raise ValueError("STEERING_POC_QWEN3_VECTOR has zero norm")
++            steering_vector = steering_vector / norm
++
++        original_forward = modeling_qwen3.Qwen3DecoderLayer.forward
++        modeling_qwen3.Qwen3DecoderLayer._steering_poc_original_forward = (  # type: ignore[attr-defined]
++            original_forward
++        )
++
++        def steering_poc_forward(self: Any, *args: Any, **kwargs: Any) -> Any:
++            output = original_forward(self, *args, **kwargs)
++            if getattr(self, "layer_idx", None) != layer_index:
++                return output
++
++            if isinstance(output, tuple):
++                hidden_states = output[0]
++                rest = output[1:]
++                is_tuple = True
++            elif isinstance(output, list):
++                hidden_states = output[0]
++                rest = output[1:]
++                is_tuple = False
++            else:
++                hidden_states = output
++                rest = None
++                is_tuple = True
++
++            steering = steering_vector.to(
++                device=hidden_states.device, dtype=hidden_states.dtype
++            ).reshape(1, 1, -1)
++            if steering.shape[-1] != hidden_states.shape[-1]:
++                raise ValueError(
++                    f"Steering dim {steering.shape[-1]} != hidden dim "
++                    f"{hidden_states.shape[-1]}"
++                )
++            steered = hidden_states + hidden_states.new_tensor(alpha) * steering
++            if rest is None:
++                return steered
++            return (steered, *rest) if is_tuple else [steered, *rest]
++
++        modeling_qwen3.Qwen3DecoderLayer.forward = steering_poc_forward
++        print(
++            "STEERING_POC_QWEN3 enabled: "
++            f"layer={layer_index} alpha={alpha} vector={vector_path}"
++        )
+ 
+     def _verify_ckpt(self) -> None:
+         if not (

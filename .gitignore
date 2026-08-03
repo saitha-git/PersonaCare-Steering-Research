@@ -1,0 +1,35 @@
+# Environments
+.venv/
+.pytest_cache/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+external/
+
+# Generated artifacts (vectors, ONNX graphs, results, plots)
+artifacts/*
+!artifacts/.gitkeep
+
+# Model weights / caches (use the Hugging Face cache instead)
+*.safetensors
+*.gguf
+*.bin
+*.dlc
+*.serialized
+hf_cache/
+
+# Secrets and SDKs
+*.token
+token.txt
+**/token.txt
+.qai_hub/
+qairt/
+qnn_sdk/
+.env
+
+# OS noise
+Thumbs.db
+.DS_Store

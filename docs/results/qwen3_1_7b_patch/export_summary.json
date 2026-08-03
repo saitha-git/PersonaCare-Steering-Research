@@ -1,0 +1,109 @@
+{
+  "date": "2026-07-22",
+  "model_id": "qwen3_1_7b",
+  "model_name": "Qwen3-1.7B",
+  "runtime": "geniex_qairt",
+  "precision": "w4a16",
+  "device": "Qualcomm Snapdragon 8 Elite for Galaxy",
+  "sequence_lengths": "1,128",
+  "context_lengths": "512",
+  "qairt_version": "2.45.0.260326154327",
+  "patch": "patches/qai_hub_models_qwen3_1_7b_steering.patch",
+  "steering": {
+    "layer": 7,
+    "vector": "artifacts/vector_layer_7_qwen3_1_7b.pt",
+    "vector_numel": 2048,
+    "vector_norm": 21.154603958129883,
+    "mode": "compiled constant via STEERING_POC_QWEN3_* environment variables"
+  },
+  "phases": {
+    "baseline": {
+      "status": "success",
+      "run_dir": "artifacts/qwen3_1_7b_patch/runs/20260722_031441_baseline",
+      "output_dir": "artifacts/qwen3_1_7b_patch/baseline/qwen3_1_7b-geniex_qairt-w4a16-qualcomm_snapdragon_8_elite_for_galaxy",
+      "compile_jobs": [
+        "jgjwjmo85",
+        "jpelj180g",
+        "jgz41986p",
+        "jg9x61kvg",
+        "jp1vrl7lp",
+        "j577qw7r5",
+        "jp49zo9l5",
+        "jpxdwjd9g"
+      ],
+      "link_jobs": [
+        "j5mdj2dq5",
+        "jgn7jy7mp",
+        "jprnzqne5",
+        "jp2v26vm5"
+      ]
+    },
+    "alpha_0": {
+      "status": "success",
+      "run_dir": "artifacts/qwen3_1_7b_patch/runs/20260722_084807_alpha0",
+      "output_dir": "artifacts/qwen3_1_7b_patch/alpha_0/qwen3_1_7b-geniex_qairt-w4a16-qualcomm_snapdragon_8_elite_for_galaxy",
+      "compile_jobs": [
+        "jp0vy3y6g",
+        "jp84o0ox5",
+        "jgk9z7z25",
+        "j5qm8e84g",
+        "jgl1n6n85",
+        "j56d6e60p",
+        "jp3wkvkl5",
+        "jgo4ykyx5"
+      ],
+      "link_jobs": [
+        "jpv9303j5",
+        "jgjwxzxx5",
+        "jpel9e91g",
+        "jgz4eoekp"
+      ]
+    },
+    "alpha_4": {
+      "status": "success",
+      "run_dir": "artifacts/qwen3_1_7b_patch/runs/20260722_093739_alpha4",
+      "output_dir": "artifacts/qwen3_1_7b_patch/alpha_4/qwen3_1_7b-geniex_qairt-w4a16-qualcomm_snapdragon_8_elite_for_galaxy",
+      "compile_jobs": [
+        "jg9xvynwg",
+        "jp1v0wz8p",
+        "jgdzwq1r5",
+        "j577zlrv5",
+        "jp49qdr85",
+        "jpxdv6o3g",
+        "j5mdr6xd5",
+        "jgn72mvkp"
+      ],
+      "link_jobs": [
+        "jprnk2305",
+        "jp2v89yr5",
+        "jpy7ej38p",
+        "jp0vy209g"
+      ]
+    }
+  },
+  "bundle_files": {
+    "config.json": 1416,
+    "genie_config.json": 1596,
+    "htp_backend_ext_config.json": 217,
+    "metadata.json": 56572,
+    "part1_of_4.bin": 622391296,
+    "part2_of_4.bin": 263032832,
+    "part3_of_4.bin": 263024640,
+    "part4_of_4.bin": 525799424,
+    "sample_prompt.txt": 160,
+    "tokenizer_config.json": 5052,
+    "tokenizer.json": 11422650
+  },
+  "validated": {
+    "baseline_geniex_qairt_export": true,
+    "alpha0_patched_geniex_qairt_export": true,
+    "alpha4_steered_geniex_qairt_export": true,
+    "all_four_context_bins_downloaded_per_bundle": true
+  },
+  "not_yet_validated": [
+    "Genie runtime text/logit comparison between baseline and alpha_0",
+    "Genie runtime text/logit comparison between baseline and alpha_4",
+    "On-device profile of the full Qwen3-1.7B bundles",
+    "Runtime alpha/vector inputs through Genie; current proof uses compiled constants"
+  ]
+}

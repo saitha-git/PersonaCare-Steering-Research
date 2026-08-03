@@ -1,0 +1,92 @@
+{
+  "qai_hub_version": "0.53.0",
+  "device": "Snapdragon X Elite CRD",
+  "device_os": "11",
+  "model": "artifacts/steering_injection_prefill.onnx",
+  "model_sha256": "726c4be948f44216eb7535d57696c4e321af0b886cfdcf4c76152ab99450560c",
+  "vector_source": "artifacts/vector_layer_14.pt",
+  "vector_sha256": "6926bb286881094b1576a3e3b714c6460ccc74e7a65da2e497196da74c1f80c2",
+  "hidden_size": 1024,
+  "seq_len": 16,
+  "alpha": 4.0,
+  "mask": "first half 0, second half 1",
+  "jobs": {
+    "compile": [
+      {
+        "id": "jp2v2z265",
+        "url": "https://workbench.aihub.qualcomm.com/jobs/jp2v2z265/"
+      }
+    ],
+    "link": {
+      "id": "jp0vnxy0g",
+      "url": "https://workbench.aihub.qualcomm.com/jobs/jp0vnxy0g/"
+    },
+    "inference_alpha_0": {
+      "id": "j56dk06np",
+      "url": "https://workbench.aihub.qualcomm.com/jobs/j56dk06np/"
+    },
+    "inference_alpha_4": {
+      "id": "jg9x67xlg",
+      "url": "https://workbench.aihub.qualcomm.com/jobs/jg9x67xlg/"
+    },
+    "profile": {
+      "id": "jp1vrkj8p",
+      "url": "https://workbench.aihub.qualcomm.com/jobs/jp1vrkj8p/"
+    }
+  },
+  "local_ort_delta_check": {
+    "alpha0_identity_vs_input": {
+      "max_abs_err": 0.0,
+      "mean_abs_err": 0.0,
+      "fp16_passed": true
+    },
+    "alpha_delta_vs_expected": {
+      "max_abs_err": 2.384185791015625e-07,
+      "mean_abs_err": 8.512592408749242e-09,
+      "cosine_active_positions": 1.000000238418579,
+      "fp16_passed": true
+    },
+    "mask_check": {
+      "masked_delta_l2": 0.0,
+      "active_delta_l2": 11.31370735168457,
+      "active_to_masked_l2_ratio": null,
+      "ratio_note": "undefined because masked positions had exactly zero delta"
+    },
+    "overall_passed": true
+  },
+  "device_delta_check": {
+    "alpha0_identity_vs_input": {
+      "max_abs_err": 0.0011267662048339844,
+      "mean_abs_err": 0.0001396475126966834,
+      "fp16_passed": true
+    },
+    "alpha_delta_vs_expected": {
+      "max_abs_err": 0.0010712146759033203,
+      "mean_abs_err": 7.37196096451953e-05,
+      "cosine_active_positions": 0.9999985694885254,
+      "fp16_passed": true
+    },
+    "mask_check": {
+      "masked_delta_l2": 0.0,
+      "active_delta_l2": 11.313711166381836,
+      "active_to_masked_l2_ratio": null,
+      "ratio_note": "undefined because masked positions had exactly zero delta"
+    },
+    "overall_passed": true
+  },
+  "device_vs_local_ort": {
+    "alpha_0_max_abs_err": 0.0011267662048339844,
+    "alpha_0_mean_abs_err": 0.0001396475126966834,
+    "alpha_4_max_abs_err": 0.0017867088317871094,
+    "alpha_4_mean_abs_err": 0.00016712564683984965,
+    "fp16_passed": true
+  },
+  "profile_summary": {
+    "estimated_inference_time_us": 167,
+    "peak_memory_bytes": 14688256,
+    "ops_by_compute_unit": {
+      "NPU": 5
+    },
+    "all_ops_on_npu": true
+  }
+}

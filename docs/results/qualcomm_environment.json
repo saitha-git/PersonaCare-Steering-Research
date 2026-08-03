@@ -1,0 +1,29 @@
+{
+  "qai_hub": {
+    "available": false
+  },
+  "qai_hub_models": {
+    "available": false
+  },
+  "ai_hub_token_configured": false,
+  "onnxruntime": {
+    "available": true,
+    "version": "1.27.0",
+    "providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "qnn_ep": false
+  },
+  "qairt_sdk": {
+    "env_root": null,
+    "root_exists": false,
+    "qnn-onnx-converter": null,
+    "qairt-converter": null,
+    "qnn-context-binary-generator": null,
+    "qnn-net-run": null
+  },
+  "executorch": {
+    "available": false
+  }
+}

@@ -1,0 +1,7 @@
+# Qualcomm tooling environment (tested in WSL Ubuntu-24.04, Python 3.10.20 —
+# create it with scripts/setup_wsl_qualcomm.sh).
+# Exact tested snapshot: requirements-qualcomm.lock.txt
+qai-hub==0.52.0
+onnx>=1.16
+onnxruntime>=1.18
+numpy

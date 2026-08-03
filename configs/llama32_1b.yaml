@@ -1,0 +1,38 @@
+# Optional config: Llama-3.2-1B-Instruct.
+# GATED weights: requires accepting Meta's license on Hugging Face and `huggingface-cli login`.
+# Included because qai-hub-models ships a maintained Llama 3.2 1B recipe; NOT required
+# for the main demo. The same generic adapter (model.model.layers) applies.
+model:
+  model_id: meta-llama/Llama-3.2-1B-Instruct
+  revision: main
+  dtype: float32
+  device: auto
+  trust_remote_code: false
+
+concept:
+  name: verbosity
+  positive_label: verbose
+  negative_label: concise
+
+extraction:
+  layers: [2, 5, 8, 10, 12, 14]   # Llama-3.2-1B has 16 decoder layers (0..15)
+  position: last_token
+  holdout_fraction: 0.2
+  seed: 1234
+
+injection:
+  default_layer: 8
+  alphas: [-4, -2, -1, 0, 1, 2, 4]
+  positions: all
+  normalize_vector: true
+
+generation:
+  max_new_tokens: 100
+  do_sample: false
+  seed: 1234
+  chat_template: true
+  enable_thinking: false
+
+evaluation:
+  top_k: 10
+  zero_alpha_tolerance: 1.0e-5

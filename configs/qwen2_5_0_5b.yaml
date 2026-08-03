@@ -1,0 +1,35 @@
+# Fallback config: Qwen2.5-0.5B-Instruct (same adapter code path as Qwen3)
+model:
+  model_id: Qwen/Qwen2.5-0.5B-Instruct
+  revision: main
+  dtype: float32
+  device: auto
+  trust_remote_code: false
+
+concept:
+  name: verbosity
+  positive_label: verbose
+  negative_label: concise
+
+extraction:
+  layers: [3, 6, 9, 12, 15, 18, 21]   # Qwen2.5-0.5B has 24 decoder layers (0..23)
+  position: last_token
+  holdout_fraction: 0.2
+  seed: 1234
+
+injection:
+  default_layer: 12
+  alphas: [-4, -2, -1, 0, 1, 2, 4]
+  positions: all
+  normalize_vector: true
+
+generation:
+  max_new_tokens: 100
+  do_sample: false
+  seed: 1234
+  chat_template: true
+  enable_thinking: false    # ignored by Qwen2.5's chat template
+
+evaluation:
+  top_k: 10
+  zero_alpha_tolerance: 1.0e-5
