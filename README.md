@@ -1,5 +1,11 @@
 # Activation Steering POC — with a Qualcomm Snapdragon deployment path
 
+> Part of **PersonaCare — Persona-Steered Medical Companion**, built for the
+> Snapdragon Multiverse Hackathon. This repo is the research track: extracting
+> and validating the steering mechanism used to control the companion's tone.
+> The on-device inference pipeline that pairs with it lives in
+> [PersonaCare](https://github.com/saitha-git/PersonaCare).
+
 Extract a steering vector from contrast pairs, inject it into the residual
 stream of a small causal LM (Qwen3-0.6B), demonstrate a measurable
 dose-response, export the injection op as an NPU-friendly ONNX graph
